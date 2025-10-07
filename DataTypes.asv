@@ -1,0 +1,12 @@
+% If you do not declare a variable name, MATLAB stores your answer as 'ans'
+12+20
+% By default, numbers in MATLAB are stored as doubles
+x = 5
+xType = class(x)
+% MATLAB allows you to declare how much storage you want an integer to take
+% You can specify the storage size using the 'int8', 'int16', 'int32', or 'int64' types
+tinyInt = int8(5)
+biggerInt = int32(1000)
+% Be careful because declaring a smaller type than you need will store the
+% maximum value of that type
+testerInt = int16(1234567)
