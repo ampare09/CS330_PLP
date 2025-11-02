@@ -19,3 +19,43 @@ you will need to make note of which kind of chip you have in order to download t
 * Comments are made by putting the percent symbol (%) before a line of code.
 * All data types are matrices, even single values.
 * Indexing starts with 1, not 0.
+
+### MATLAB Variables
+The basis of MATLAB is a simple calculator, and if you want it to it does function as such. Typing an equation without declaring to a variable, such as:
+```
+12+20
+```
+will automatically declare the answer (an integer equal to 32) to a built-in varible called "ans" and will display the answer "ans = 32". In order to hide the answer from the display window, a semicolon can be used at the end of the line:
+```
+12+20;
+```
+which will produce no output. To display the value of any variable, the "disp" function can be used. In this case
+```
+disp(ans)
+```
+will output 32. An important thing to note is that MATLAB is dynamically typed, meaning that the type of any given variable can be changed. This is especially useful in the case of the "ans" variable because the answer to one equation may be a single number, while another may be an array.
+
+The default type for a number in MATLAB is a double, meaning that
+```
+y = 5
+xType = class(y)
+```
+will display xType = 'double'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
