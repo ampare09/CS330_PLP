@@ -20,7 +20,8 @@ you will need to make note of which kind of chip you have in order to download t
 * All data types are matrices, even single values.
 * Indexing starts with 1, not 0.
 
-### MATLAB Variables
+
+# MATLAB Variables
 The basis of MATLAB is a simple calculator, and if you want it to it does function as such. Typing an equation without declaring to a variable, such as:
 ```
 12+20
@@ -35,12 +36,63 @@ disp(ans)
 ```
 will output 32. An important thing to note is that MATLAB is dynamically typed, meaning that the type of any given variable can be changed. This is especially useful in the case of the "ans" variable because the answer to one equation may be a single number, while another may be an array.
 
+### Number types
 The default type for a number in MATLAB is a double, meaning that
 ```
 y = 5
 xType = class(y)
 ```
-will display xType = 'double'
+will display xType = 'double'. The problem with this is that doubles use much more storage then is often needed, which can be a waste especially when dealing with large amounts of data. Because of this, MATLAB allows users to explicitly type their variables to the size which they need.
+```
+% You can use 'single' to create floats
+singleNum = single(3.14)
+% You can specify the storage size using the 'int8', 'int16', 'int32', or 'int64' types
+tinyInt = int8(5)
+biggerInt = int32(1000)
+% Be careful because declaring a smaller type than you need will store the
+% maximum value of that type
+testerInt = int16(1234567)
+```
+
+### Strings
+Strings are created using double quotes. You can also create character vectors using single quotes.
+```
+str = "This is my new String"
+chr = 'This does not need to be a single character'
+```
+
+### Booleans
+Boolean values are stored as 0 or 1, but can be declared by true and false.
+```
+% These two expressions are equivalent
+bool1 = logical(1)
+bool2 = true
+```
+
+### Arrays
+Arrays are really where MATLAB shines. Technically, all variables in MATLAB are multidimensional arrays.
+```
+% You can create arrays using square brackets
+array1 = [1, 2, 3, 4, 5]
+array2 = [6; 7; 8; 9; 10]
+% Commas seperate elements in the same line, while semicolons show rows
+array3 = [1, 2, 3; 4, 5, 6; 7, 8, 9]
+array4 = array3;
+% You can easily use built-in functions to do matrix math
+array3*array4
+% If you want to do element-wise multiplication, use .*
+array3.*array4
+```
+
+### Important considerations
+* Matlab has many reserved words, which will depend on the version and libraries you have in your own account. Reserved words should not be used for any variable names. MATLAB has certain libraries which can be used to [view reserved words on your device.](https://www.mathworks.com/help/rtw/ug/reserved-keywords.html)
+* Because 
+
+
+
+
+
+
 
 
 
