@@ -48,3 +48,7 @@ disp("z is much better now")
 for i = 1:8
     disp(i.*i)
 end
+
+for a = [1,3,5,7,11]
+    disp(a)
+end
