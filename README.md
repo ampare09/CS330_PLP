@@ -86,7 +86,99 @@ array3.*array4
 
 ### Important considerations
 * Matlab has many reserved words, which will depend on the version and libraries you have in your own account. Reserved words should not be used for any variable names. MATLAB has certain libraries which can be used to [view reserved words on your device.](https://www.mathworks.com/help/rtw/ug/reserved-keywords.html)
-* Because 
+* Matlab is implicitly and dynamically typed, meaning you are not required to declare a type when you declare a variable, and you can continue to put anything into a variable of the same name, regardless of whether it matches the previous value of the variable.
+
+# Selection
+Selection is important because it allows you to control what your program does based on various factors.
+### "If" statements
+If statements are delineated by starting with the word "if", writing some code, and then using the word "end".
+```
+x = randi(100)
+if x>50
+    disp("x is big!")
+end
+```
+This can also be used to create larger code-blocks inside of an if-else statement.
+```
+if mod(x,2)==0
+    disp("x is even");
+    if mod(x,3)==0
+        disp("x is divisible by 3");
+    end
+elseif mod(x,3)==0
+    disp("x is odd and divisible by 3");
+else
+    disp("x is odd and not divisible by 3");
+end
+```
+The keyword "end" will always end the innermost, or most recent, statement. This is MATLAB's solution to the "dangling else" problem,
+because the else will also apply to the innermost condition unless it has been ended. It is considered best practice to also differentiate your lines by indenting for readability, but it is not strictly required.
+
+### Compound statements
+You can combine conditions by using boolean operations such as && (meaning and) or || (meaning or).
+```
+x = randi(100)
+y = randi(100)
+if mod(x,10)==0 && mod(y,10)==0
+    disp("both x and y are nice numbers")
+end
+```
+By default, MATLAB performs short-cicuiting, meaning that if it can determine for certain that the entire condition is true or false before evaluating each one individually, it will skip over them. This saves time but if you wish to avoid it, you can use operations & and | in place of && and ||.
+
+
+### Switch cases
+Switch-case statements are another method of selection which can be used.
+```
+x = randi(100)
+switch x
+    case 1
+        disp("First is the worst");
+    case 2
+        disp("Second is the best");
+    case 3
+        disp("Third is the one with the treasure chest");
+    otherwise
+        disp("You get a participation trophy");
+end
+```
+Note that in this case, the word break is not used, and the program will automatically break before the next case. The word "end" is again required at the end of the full statement.
+
+### While loops
+While loops operate similarly to if statements, and iterate until the specified condition is met.
+```
+z = randi(100)
+while mod(z,10) ~= 0
+    disp("z is not very good, lets try again")
+    z = randi(100)
+end
+disp("z is much better now")
+```
+> [!NOTE]
+> The symbol meaning "not" in MATLAB is "~".
+
+### For loops
+For loops can iterate between numbers separated by a colon
+```
+for i = 1:8
+    disp(i.*i)
+end
+```
+or between items in an array.
+```
+for a = [1,3,5,7,11]
+    disp(a)
+end
+```
+
+
+
+
+
+
+
+
+
+
 
 
 
