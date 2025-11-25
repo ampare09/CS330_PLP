@@ -169,6 +169,59 @@ for a = [1,3,5,7,11]
     disp(a)
 end
 ```
+# Functions
+Functions in MATLAB follow the format:
+```
+function outputName = functionName(inputName)
+    outputName = inputName;
+end
+```
+and are called using:
+```
+x = functionName(5);
+```
+This can create a process which may be used repeatedly.
+```
+function m = multiply(A, B)
+     m = A.*B;
+end
+multiple = multiply(12,3)
+multiple = multiply(2,1345)
+multiple = multiply(123,30)
+```
+Functions can be called recursively, meaning they call themselves to repeat their process.
+```
+function f = factorial(x)
+    if x==1
+        f = 1;
+    else
+        f = x * factorial(x - 1);
+    end
+
+end
+fac = factorial(5)
+```
+A function can return an array of more than one variable.
+```
+function [str1, str2] = split(s)
+    half = int16(s.strlength()/2);
+    str1 = extractBetween(s, 1, half);
+    str2 = extractBetween(s, half + 1, strlength(s));
+end
+[str1, str2] = split("Hello world")
+```
+
+In MATLAB, functions are passed by value, not reference. This means that if the value of a variable is changed inside of the function, this change does not affect the variable outside unless the value is returned.
+```
+function change(x)
+    disp("x initial: "+x)
+    x = x.*2;
+    disp("x changed: "+x)
+end
+x = 12;
+change(x);
+disp("x outside: "+x)
+```
 
 
 
