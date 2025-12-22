@@ -225,8 +225,8 @@ disp("x outside: "+x)
 
 # Objects
 Object-oriented programming is a very useful to for extending the capabilities of your programming skills, to understand how an object works in MATLAB, lets break down the following simple program for a Person-Object.
-'''
-classdef Person_Object
+```
+Classdef Person_Object
     properties
         name
         age
@@ -247,11 +247,38 @@ classdef Person_Object
         end
     end
 end
-'''
+```
 
+Every class begins with the word "Classdef" and then the name of your class, in MATLAB you do not need to have a class in every file, but if you do it must match the file name. MATLAB does not have a strong convention for class naming, and many tutorials will use different rules, so the most important thing is that you keep your naming consistent, so that you know how to find your files. I recommend using the traditional programming convention of starting class names with capital letters.
+```
+properties
+    name
+    age
+    friends
+end
+```
+In MATLAB, the attributes of an object are called properties, and they can be listed out simply in the properties block. If you want to apply any restrictions to these properties, such as specifying type, or saying they must be within a certain range, that can be done after the variable name.
+```
+age double {mustBePositive}
+```
+You can set the access to you variables in parenthesis after the word properties. If you want different properties to have different access you can use more than on code block.
+```
+properties (SetAccess = private)
+...
+end
 
-
-
+properties (SetAccess = protected)
+...
+end
+```
+Similarly to properties, methods have their own code blocks.
+```
+function p = Person_Object(name,age)
+    p.name = name;
+    p.age = age;
+    p.friends = createArray(0,0,"Person_Object");
+end
+```
 
 
 
