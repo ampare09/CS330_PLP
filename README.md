@@ -224,7 +224,7 @@ disp("x outside: "+x)
 ```
 
 # Objects
-Object-oriented programming is a very useful to for extending the capabilities of your programming skills, to understand how an object works in MATLAB, lets break down the following simple program for a Person-Object.
+MATLAB does provide support for objects, but may work very differently from what you are accustomed to if you have any familiarity with ojects in other languages. To understand how an object works in MATLAB, lets break down the following simple program for a Person-Object.
 ```
 Classdef Person_Object
     properties
@@ -285,7 +285,7 @@ function self = birthday(self)
     self.age = self.age + 1;
 end
 ```
-Whenever an object's method is used to update itself, that method must both recieve and return the object itself. 
+Whenever an object's method is used to update itself, that method must both recieve and return the object itself. This is because objects in MATLAB are passed by reference, instead of by value. 
 
 
 
