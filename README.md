@@ -279,8 +279,13 @@ function p = Person_Object(name,age)
     p.friends = createArray(0,0,"Person_Object");
 end
 ```
-
-
+The constructor method (above) is important because it allows you to initialize a new object. Note the syntax is as follows: "objectThatReturns = ClassName(inputs)". A constructor must use the same method name as the class so that an object can be created. Two methods cannot have the same name, even with different inputs. If a method needs to be called with a variable number of inputs, the word "nargin" can be used to find the number of arguments for a given function. This can be used with selection statements to create different "versions" of your function. Note that the arguments in will use the variable names in order. So if there are five possible and three are givin, they will have the names of the first three.
+```
+function self = birthday(self)
+    self.age = self.age + 1;
+end
+```
+Whenever an object's method is used to update itself, that method must both recieve and return the object itself. 
 
 
 
