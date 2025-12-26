@@ -285,10 +285,52 @@ function self = birthday(self)
     self.age = self.age + 1;
 end
 ```
-Whenever an object's method is used to update itself, that method must both recieve and return the object itself. This is because objects in MATLAB are passed by reference, instead of by value. 
-
-
-
+Whenever an object's method is used to update itself, that method must both recieve and return the object itself. This is because objects in MATLAB are passed by reference, instead of by value. This can be confusing, so make sure you keep track of the object being passed. The first parameter will refer to the object itself, there is no reserved word to refer to this, but the name "obj" is commononly used.
+```
+function self = makeFriend(self,fName, fAge)
+    self.friends(end+1) = (Person_Object(fName,fAge));
+    self.friends(end).friends(end+1)=self;
+end
+```
+Objects can be attributes of each other, so long as you update the object itself properly.
+```
+p1 = Person_Object("Sam",19);
+p1 = makeFriend(p1,"Ben",19);
+```
+Objects can be created and used using syntax like the above.
+### Inheritence
+Objects can inherit from others, for example consider a student class which uses the features of the person class:
+```
+classdef Student_Object<Person_Object
+    properties
+        studentID
+        grades
+        major
+    end
+    methods
+        function obj = Student_Object(name, age, id)
+            obj = obj@Person_Object(name,age);
+            obj.studentID = id;
+        end
+        function gpa = calcGPA(student)
+            gpa = ((sum(student.grades)/100).*4)./length(student.grades);
+        end
+    end
+end
+```
+You can see how the object now has some of its own features, and refers to its superclass using @Person_Object. The object can be created and used like this:
+```
+p3 = Student_Object("Sydney",20,"1234");
+p3.grades = [95,100,97,92];
+p3 = p3.birthday();
+```
+Notice how you can use elements of the superclass as well as those belonging to the subclass.
+### Other considerations
+* MATLAB has a few built-in methods you can override, including disp to change how an object displays, and all comparison operators.
+* MATLAB supports multiple inheritence using the syntax "classdef ClassName < SuperClass1 & SuperClass2"
+* Overriding the superclass can be done by simply writing a class of the same name.
+# That's it!
+There you have it, that is all you need to get started programming in MATLAB! Now go forward and do some math.
 
 
 
