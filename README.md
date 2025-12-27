@@ -331,6 +331,7 @@ Notice how you can use elements of the superclass as well as those belonging to 
 * Overriding the superclass can be done by simply writing a class of the same name.
 # That's it!
 There you have it, that is all you need to get started programming in MATLAB! Now go forward and do some math.
+For further information see my [Huffman coding example](https://github.com/ampare09/Huffman-Coding).
 
 
 
